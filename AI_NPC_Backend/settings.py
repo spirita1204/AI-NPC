@@ -76,13 +76,7 @@ WSGI_APPLICATION = 'AI_NPC_Backend.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django',
-        'NAME': 'AI-NPC',
-        'CLIENT': {
-            'host': 'mongodb://localhost:27017/',  # 使用本地 MongoDB 地址
-        }, 
-    }
+
 }
 
 # Password validation
