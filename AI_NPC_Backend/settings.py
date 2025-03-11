@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework', # DRF
+    'channels', # Socket
     'api'
 ]
 
@@ -69,6 +70,7 @@ TEMPLATES = [
     },
 ]
 
+ASGI_APPLICATION = "AI_NPC_Backend.asgi.application" # 處理異步請求的接口
 WSGI_APPLICATION = 'AI_NPC_Backend.wsgi.application'
 
 
