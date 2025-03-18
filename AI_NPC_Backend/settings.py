@@ -25,21 +25,23 @@ SECRET_KEY = 'django-insecure-&rxu54ao&u&ku87s84_eh$5a4-@-4)inisfl(y=3iy7xk!)hvr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '*'
+]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'rest_framework', # DRF
+    'daphne', # Socket
+    'api',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework', # DRF
-    'channels', # Socket
-    'api'
 ]
 
 MIDDLEWARE = [
@@ -70,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-ASGI_APPLICATION = "AI_NPC_Backend.asgi.application" # 處理異步請求的接口
+ASGI_APPLICATION = "AI_NPC_Backend.asgi.application" # 處理異步請求的接口 Daphne
 WSGI_APPLICATION = 'AI_NPC_Backend.wsgi.application'
 
 
@@ -78,7 +80,10 @@ WSGI_APPLICATION = 'AI_NPC_Backend.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-
+   "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "mydatabase",
+    }
 }
 
 # Password validation
@@ -121,3 +126,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+        # "BACKEND": "channels_redis.core.RedisChannelLayer",
+        # "CONFIG": {
+        #     "hosts": [("127.0.0.1", 6379)],
+        # },
+    },
+}

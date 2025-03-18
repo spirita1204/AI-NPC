@@ -1,7 +1,11 @@
 from django.urls import path
-from api.views import TEST_DRF_API, TEST_GET_MONGO_DB_DATA  # 這個 view 函式目前還沒寫
+from . import views
 
 urlpatterns = [
-    path('TEST_DRF_API/', TEST_DRF_API),
-    path('TEST_GET_MONGO_DB_DATA/', TEST_GET_MONGO_DB_DATA),
+    path('test_drf_api/',           views.test_drf_api),
+    path('test_mongoDb_data/',      views.test_mongoDb_data),
+    path('send_move/',              views.send_character_move),
+    # socket
+    path("chat/index",              views.test_socket_index, name="index"),
+    path("chat/<str:room_name>/",   views.test_socket_room,  name="room"),
 ]
