@@ -22,7 +22,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'AI_NPC_Backend.settings')
 # is populated before importing code that may import ORM models.
 django_asgi_app = get_asgi_application()
 
-from api.routing import websocket_urlpatterns
+from mcp_app.routing import websocket_urlpatterns
 
 application = ProtocolTypeRouter(
     {

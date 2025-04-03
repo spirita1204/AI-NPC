@@ -52,9 +52,3 @@ def send_character_move(request):
         }
     )
     return JsonResponse({'status': 'ok', 'action': 'EAT', 'position': {'x': 100, 'y': 100}})
-    
-def test_socket_index(request):
-    return render(request, "api/index.html")
-
-def test_socket_room(request, room_name):
-    return render(request, "api/room.html", {"room_name": room_name})

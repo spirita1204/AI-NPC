@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'rest_framework', # DRF
     'daphne', # Socket
     'api',
+    'mcp_app',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
